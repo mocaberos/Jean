@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  app:
+    container_name: nginx-with-naxsi
+    build:
+      context: .
+    environment:
+      PROXY_PASS: 'http://mmock:8083'
+    ports:
+      - '1191:1191'
+  mmock:
+    container_name: mmock
+    image: jordimartin/mmock:v3.0.3
+    volumes:
+      - './mmock:/config'
+    ports:
+      - '8082:8082'
+      - '8083:8083'

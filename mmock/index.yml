@@ -1,0 +1,9 @@
+request:
+  method: GET
+  path: "/*"
+response:
+  statusCode: 200
+  headers:
+    Content-Type:
+      - application/json
+  body: '{"message": "Success!"}'
